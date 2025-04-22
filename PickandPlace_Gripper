@@ -1,0 +1,34 @@
+Function main
+
+	Motor On
+	Power High
+	Speed 100
+	Accel 60, 60
+'	SpeedS 2000
+'	AccelS 500, 500
+	Integer i
+	Integer ZOffset
+	ZOffset = 0
+	
+			Jump ClothPick :Z(0)
+	For i = 1 To 5
+'		Go GripMean
+		Jump ClothPick -Z(ZOffset)
+		On Gripper
+'		Go GripMean
+'		Go FeedMean
+		Jump FeedDown
+		Off Gripper
+'		Go FeedMean
+'		Jump Mean
+		Print i
+		ZOffset = ZOffset + 2
+		
+		
+		
+	Next
+			Jump ClothPick :Z(0)
+	ZOffset = 0
+	
+
+Fend
