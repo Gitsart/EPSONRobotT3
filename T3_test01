@@ -1,0 +1,55 @@
+#MainProgram
+
+
+Global Double ZOffset
+
+Function main
+	ZOffset = 0.0
+	
+	Motor On
+	Power High
+	
+	Integer i
+	For i = 1 To 10
+		pickpos
+		pick
+		place
+	Next
+
+Fend
+
+##The call functions pickpos, pick and place have separate programs that call the corresponding robot points in the plane, that are previously tuaght.
+
+##FCall Pickpos
+Function pickpos
+	Motor On
+	Power High
+	Speed 100
+	Accel 20, 20
+	Jump PickMean
+Fend
+
+##FCall Pick
+Function pick
+	Motor On
+	Power High
+	Speed 20
+	
+	Go Gopick -Z(ZOffset)
+	
+	
+	
+Fend
+
+
+##Fcall Place
+Function place
+	Motor On
+	Power High
+	Speed 20
+	Jump DropMean
+	Go Drop
+	ZOffset = ZOffset + 0.7
+	
+	
+Fend
